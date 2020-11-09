@@ -9,11 +9,12 @@ class File {
 public:
 	File(std::string path);
 	void deleteFile();
-	void show();
 
 protected:
 	std::ifstream c_file;
 	std::string c_path;
+
+	friend std::ostream& operator<< (std::ostream& flux, File& file);
 };
 
 #endif

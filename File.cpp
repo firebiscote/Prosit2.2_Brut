@@ -16,9 +16,10 @@ void File::deleteFile() {
 
 }
 
-void File::show() {
+ostream& operator<< (ostream& flux, File& file) {
 	string line;
-	while (getline(c_file, line)) {
+	while (getline(file.c_file, line)) {
 		cout << line << endl;
 	}
+	return flux;
 }
