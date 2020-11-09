@@ -5,8 +5,6 @@
 using namespace std;
 
 int main() {
-	File a("C:\\Users\\maxim\\Documents\\Aprog\\C-C++\\C++\\testFichierTexte\\text.txt");
-	cout << a;
-	Encryption e(a, 1);
-	a.deleteFile();
+	Encryption z("C:\\Users\\maxim\\Documents\\Aprog\\C-C++\\C++\\testFichierTexte\\text.txt", "C:\\Users\\maxim\\Documents\\Aprog\\C-C++\\C++\\testFichierTexte\\text2.txt");
+	z.level1('e');
 }
