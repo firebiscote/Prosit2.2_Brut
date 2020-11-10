@@ -3,23 +3,18 @@
 using namespace std;
 
 File::File(string path) {
-	c_file.open(path);
-	if (c_file) {
+	ifstream file(path);
+	if (file) {
+		char tmp;
+		while (file.get(tmp)) {
+			c_file += tmp;
+		}
 		c_path = path;
-	} else {
-		c_file.close();
 	}
-}
-
-void File::deleteFile() {
-	c_file.close();
-
+	file.close();
 }
 
 ostream& operator<< (ostream& flux, File& file) {
-	string line;
-	while (getline(file.c_file, line)) {
-		cout << line << endl;
-	}
+	cout << file.c_file;
 	return flux;
 }

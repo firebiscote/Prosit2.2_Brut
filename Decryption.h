@@ -1,15 +1,15 @@
-#ifndef DEF_ENCRYPTION
-#define DEF_ENCRYPTION
+#ifndef DEF_DECRYPTION
+#define DEF_DECRYPTION
 
 #include <iostream>
 #include <fstream>
 #include <string>
 #include "File.h"
 
-class Encryption : public File {
+class Decryption : public File {
 public:
-	Encryption(std::string path, std::string newPath);
-	void level1(char const XORkey);
+	Decryption(std::string path, std::string newPath);
+	void level1(char XORkey);
 	void level2(int Ckey);
 	void level3(char XORkey, int Ckey);
 

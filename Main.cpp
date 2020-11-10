@@ -1,10 +1,11 @@
 #include <iostream>
 #include "File.h"
 #include "Encryption.h"
+#include "Decryption.h"
 
 using namespace std;
 
 int main() {
 	Encryption z("C:\\Users\\maxim\\Documents\\Aprog\\C-C++\\C++\\testFichierTexte\\text.txt", "C:\\Users\\maxim\\Documents\\Aprog\\C-C++\\C++\\testFichierTexte\\text2.txt");
-	z.level1('e');
+	Decryption e("C:\\Users\\maxim\\Documents\\Aprog\\C-C++\\C++\\testFichierTexte\\text2.txt", "C:\\Users\\maxim\\Documents\\Aprog\\C-C++\\C++\\testFichierTexte\\text3.txt");
 }

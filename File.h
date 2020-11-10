@@ -11,7 +11,7 @@ public:
 	void deleteFile();
 
 protected:
-	std::ifstream c_file;
+	std::string c_file;
 	std::string c_path;
 
 	friend std::ostream& operator<< (std::ostream& flux, File& file);

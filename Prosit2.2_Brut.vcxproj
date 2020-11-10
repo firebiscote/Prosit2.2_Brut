@@ -142,10 +142,12 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="Encryption.cpp" />
+    <ClCompile Include="Decryption.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="File.h" />
     <ClInclude Include="Encryption.h" />
+    <ClInclude Include="Decryption.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

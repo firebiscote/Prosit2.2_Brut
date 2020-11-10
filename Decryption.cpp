@@ -1,8 +1,8 @@
-#include "Encryption.h"
+#include "Decryption.h"
 
 using namespace std;
 
-Encryption::Encryption(string path, string newPath) : File(path), c_newPath(newPath) {
+Decryption::Decryption(string path, string newPath) : File(path), c_newPath(newPath) {
 	int level;
 	char XORkey;
 	int caesarKey;
@@ -32,17 +32,18 @@ Encryption::Encryption(string path, string newPath) : File(path), c_newPath(newP
 	}
 }
 
-void Encryption::level1(char XORkey) {
+void Decryption::level1(char XORkey) {
 	ofstream file(c_newPath);
 	if (file) {
 		c_file = doXOR(XORkey);
 		file << c_file;
-	} else {
+	}
+	else {
 		cout << "ERROR" << endl;
 	}
 }
 
-void Encryption::level2(int Ckey) {
+void Decryption::level2(int Ckey) {
 	ofstream file(c_newPath);
 	if (file) {
 		c_file = doCaesar(Ckey);
@@ -53,11 +54,11 @@ void Encryption::level2(int Ckey) {
 	}
 }
 
-void Encryption::level3(char XORkey, int Ckey) {
+void Decryption::level3(char XORkey, int Ckey) {
 	ofstream file(c_newPath);
 	if (file) {
-		c_file = doCaesar(Ckey);
 		c_file = doXOR(XORkey);
+		c_file = doCaesar(Ckey);
 		file << c_file;
 	}
 	else {
@@ -65,7 +66,7 @@ void Encryption::level3(char XORkey, int Ckey) {
 	}
 }
 
-string Encryption::doXOR(char XORkey) {
+string Decryption::doXOR(char XORkey) {
 	string XORresult;
 	for (int i = 0; i < c_file.size(); i++) {
 		XORresult = (char)c_file[i] ^ XORkey;
@@ -73,15 +74,16 @@ string Encryption::doXOR(char XORkey) {
 	return XORresult;
 }
 
-string Encryption::doCaesar(int Ckey) {
+string Decryption::doCaesar(int Ckey) {
 	if (Ckey > 27) {
 		Ckey = 27;
-	} else if (Ckey < 0) {
+	}
+	else if (Ckey < 0) {
 		Ckey = 0;
 	}
 	string caesarResult;
 	for (int i = 0; i < c_file.size(); i++) {
-		caesarResult += (char)((int)(char)c_file[i] + Ckey);
+		caesarResult += (char)((int)(char)c_file[i] - Ckey);
 	}
 	return caesarResult;
 }
