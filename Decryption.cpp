@@ -35,7 +35,7 @@ Decryption::Decryption(string path, string newPath) : File(path), c_newPath(newP
 void Decryption::level1(char XORkey) {
 	ofstream file(c_newPath);
 	if (file) {
-		c_file = doXOR(XORkey);
+		c_file = undoXOR(XORkey);
 		file << c_file;
 	}
 	else {
@@ -46,7 +46,7 @@ void Decryption::level1(char XORkey) {
 void Decryption::level2(int Ckey) {
 	ofstream file(c_newPath);
 	if (file) {
-		c_file = doCaesar(Ckey);
+		c_file = undoCaesar(Ckey);
 		file << c_file;
 	}
 	else {
@@ -57,8 +57,8 @@ void Decryption::level2(int Ckey) {
 void Decryption::level3(char XORkey, int Ckey) {
 	ofstream file(c_newPath);
 	if (file) {
-		c_file = doXOR(XORkey);
-		c_file = doCaesar(Ckey);
+		c_file = undoXOR(XORkey);
+		c_file = undoCaesar(Ckey);
 		file << c_file;
 	}
 	else {
@@ -66,15 +66,15 @@ void Decryption::level3(char XORkey, int Ckey) {
 	}
 }
 
-string Decryption::doXOR(char XORkey) {
+string Decryption::undoXOR(char XORkey) {
 	string XORresult;
 	for (int i = 0; i < c_file.size(); i++) {
-		XORresult = (char)c_file[i] ^ XORkey;
+		XORresult += (char)c_file[i] ^ XORkey;
 	}
 	return XORresult;
 }
 
-string Decryption::doCaesar(int Ckey) {
+string Decryption::undoCaesar(int Ckey) {
 	if (Ckey > 27) {
 		Ckey = 27;
 	}

@@ -15,8 +15,8 @@ public:
 
 protected:
 	std::string c_newPath;
-	std::string doXOR(char XORkey);
-	std::string doCaesar(int Ckey);
+	std::string undoXOR(char XORkey);
+	std::string undoCaesar(int Ckey);
 };
 
 #endif

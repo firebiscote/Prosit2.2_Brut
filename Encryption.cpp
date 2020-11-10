@@ -68,7 +68,7 @@ void Encryption::level3(char XORkey, int Ckey) {
 string Encryption::doXOR(char XORkey) {
 	string XORresult;
 	for (int i = 0; i < c_file.size(); i++) {
-		XORresult = (char)c_file[i] ^ XORkey;
+		XORresult += (char)c_file[i] ^ XORkey;
 	}
 	return XORresult;
 }
