@@ -12,9 +12,8 @@ Decryption::Decryption() {
 }
 
 Decryption::Decryption(string path, string newPath) : File(path), c_newPath(newPath) {
-	int level;
+	int level, caesarKey;
 	char XORkey;
-	int caesarKey;
 	cout << "Encryption level : ";
 	cin >> level;
 	switch (level) {
