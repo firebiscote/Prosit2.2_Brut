@@ -7,8 +7,8 @@
 
 class File {
 public:
+	File();
 	File(std::string path);
-	void deleteFile();
 
 protected:
 	std::string c_file;

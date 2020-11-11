@@ -8,6 +8,7 @@
 
 class Encryption : public File {
 public:
+	Encryption();
 	Encryption(std::string path, std::string newPath);
 	void level1(char const XORkey);
 	void level2(int Ckey);

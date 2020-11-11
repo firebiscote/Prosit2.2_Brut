@@ -2,6 +2,9 @@
 
 using namespace std;
 
+File::File() {
+}
+
 File::File(string path) {
 	ifstream file(path);
 	if (file) {

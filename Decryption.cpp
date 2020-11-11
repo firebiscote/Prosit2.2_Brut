@@ -2,6 +2,15 @@
 
 using namespace std;
 
+Decryption::Decryption() {
+	string path, newPath;
+	cout << "Encrypted file's path : ";
+	cin >> path;
+	cout << "File's path : ";
+	cin >> newPath;
+	Decryption(path, newPath);
+}
+
 Decryption::Decryption(string path, string newPath) : File(path), c_newPath(newPath) {
 	int level;
 	char XORkey;
